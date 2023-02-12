@@ -11,7 +11,9 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class WeezzPlayerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WeezzPlayerApplication.class, args);
+        ApplicationContext cnt = SpringApplication.run(WeezzPlayerApplication.class, args);
+        CampaignElementRepository campaignelementrepository = cnt.getBean(CampaignElementRepository.class);
+    	campaignelementrepository.save(new CampaignElement());
     }
 
 }
