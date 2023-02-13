@@ -4,8 +4,9 @@ node {
   }
   stage('SonarQube Analysis') {
     def mvn = tool 'maven';
-    withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Tester-WeezzPlayer_Backend"
+    withSonarQubeEnv() { 
+      
+      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Tester-WeezzPlayer_Backend" 
     }
   }
 }
