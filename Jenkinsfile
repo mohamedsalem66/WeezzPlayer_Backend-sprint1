@@ -1,12 +1,17 @@
 node {
-  stage('SCM') {
-    checkout scm
+  stage('Cloning the project from Git') {
+    git branch: 'main', url: 'https://github.com/mohamedsalem66/WeezzPlayer_Backend-sprint1.git'
   }
   stage('SonarQube Analysis') {
-    def mvn = tool 'maven';
+    def scannerHome = tool 'SonarServer';
     withSonarQubeEnv() { 
       
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Tester-WeezzPlayer_Backend" 
+      sh "${sonnarHome}/bin/sonar-scanner \
+      -Dsonar.login=admin \
+      -Dsonar.login=FRS**sonar \
+      -Dsonar.projectKey=WeeztestPip \
+      -Dsonar.exclusions=vendor/**,resources/**,**/*.java" \
+      -Dsonar.host.url=http://http://192.168.152.131:9000/"
     }
   }
 }
