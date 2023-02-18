@@ -11,7 +11,7 @@ node {
       -Dsonar.login=FRS**sonar \
       -Dsonar.projectKey=WeeztestPip \
       -Dsonar.exclusions=vendor/**,resources/**,**/*.java" \
-      -Dsonar.host.url=http://http://192.168.152.131:9000/"
+      -Dsonar.host.url=http://192.168.152.131:9000/"
     }
   }
 }
